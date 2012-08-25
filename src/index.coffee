@@ -30,7 +30,7 @@ do run = ->
   fs.writeFile new_name, file, 'utf8', (err) ->
     console.log "runing #{fullpath}...".red
     exec "guile #{new_name}", (err, stdout, stderr) ->
-      if err? then throw err else
+      if err? then show err else
         console.log '>>>'.blue, stdout
         console.log '--------------'.blue
         console.log stderr.red

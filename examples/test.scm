@@ -1,3 +1,5 @@
-(if (> 2 1)
-  (display 2)
-  (display 1))
+(define (f x y)
+  + x y)
+(display (f 2 3))
+(display
+  "fucking brackets")
