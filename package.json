@@ -1,0 +1,21 @@
+{
+  "name": "guil",
+  "version": "0.0.0",
+  "description": "add brackets for guile code",
+  "main": "./lib/guil.js",
+  "scripts": {
+    "test": "./bin/guil/examples/test.guil"
+  },
+  "repository": "",
+  "keywords": [
+    "guile"
+  ],
+  "author": "jiyinyiyong",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "0.6.x"
+  },
+  "bin": {
+    "guil": "./bin/guil"
+  }
+}
