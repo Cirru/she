@@ -45,7 +45,7 @@ new_name = path.join(dirname, basename + '.scm');
     console.log(("runing " + fullpath + "...").red);
     return exec("guile " + new_name, function(err, stdout, stderr) {
       if (err != null) {
-        throw err;
+        return show(err);
       } else {
         console.log('>>>'.blue, stdout);
         console.log('--------------'.blue);

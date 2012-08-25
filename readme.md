@@ -18,7 +18,7 @@ Run `guil /home/chen/git/guil/examples/test.guil`
 Tt will be converted to `/home/chen/git/guil/examples/test.scm`:  
 
     (define (f x y)
-      + x y)
+      (+ x y))
     (display (f 2 3))
     (display
       "fucking brackets")

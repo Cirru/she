@@ -43,11 +43,11 @@ cal_right = (curr, prev, next) ->
 get = (arr, i) -> if arr[i]? then arr[i] else ''
 
 continous = (line) ->
-  show line
+  # show line
   line = line.trim()
   h = line[0]
   p = line.indexOf ' '
-  (h in ['"', "'"]) or (p < 0)
+  (h in ['"', "'", '[']) or (p < 0)
 
 single = (curr, prev, next) ->
   p = read prev
@@ -57,8 +57,8 @@ single = (curr, prev, next) ->
   rule1 = c > 0
   rule2 = n <= c
   rule3 = continous curr
-  show rule3
-  rule1 and (rule2 or rule3)
+  # show rule3
+  rule1 and rule2 and rule3
 
 deal = (line, i, arr) ->
   prev = get arr, (i - 1)
