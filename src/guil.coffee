@@ -8,7 +8,8 @@ good_indent = (line) ->
   if odd spaces.length
     info = 'odd indentations: '
     info += line.replace(/\s/g, '+')
-    error info
+    error info if error?
+    throw error
   else true
 
 not_empty = (line) -> line.trim().length > 0

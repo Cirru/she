@@ -1,19 +1,24 @@
 {
   "name": "guil",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "add brackets for guile code",
   "main": "./lib/guil.js",
   "scripts": {
     "test": "./bin/guil/examples/test.guil"
   },
-  "repository": "git@github.com:jiyinyiyong/guil.git",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jiyinyiyong/guil.git"
+  },
   "keywords": [
     "guile"
   ],
-  "author": "jiyinyiyong",
+  "author": {
+    "name": "jiyinyiyong"
+  },
   "license": "MIT",
   "dependencies": {
-    "colors": "0.6.x"
+    "colors": "0.8.x"
   },
   "bin": {
     "guil": "./bin/guil"
