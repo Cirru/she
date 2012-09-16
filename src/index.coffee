@@ -4,7 +4,7 @@ global.error = (x) -> throw new Error x
 
 fs = require 'fs'
 path = require 'path'
-{exec} = require 'child_process'
+{exec, spawn} = require 'child_process'
 colors = require 'colors'
 
 convert = require('./lib/guil.js').convert
@@ -29,11 +29,12 @@ do run = ->
   file = convert file
   fs.writeFile new_name, file, 'utf8', (err) ->
     console.log "runing #{fullpath}...".red
-    exec "guile #{new_name}", (err, stdout, stderr) ->
-      if err? then show err else
-        console.log '>>>'.blue, stdout
-        console.log '--------------'.blue
-        console.log stderr.red
+    output = spawn "guile", [new_name]
+    output.stdout.setEncoding 'utf8'
+    output.stderr.setEncoding 'utf8'
+    output.stdout.on 'data', (chunk) -> show chunk
+    output.stderr.on 'data', (chunk) -> show chunk.red
+    output.on 'exit', -> show 'finished'.blue
 
 op = interval: 100
 fs.watchFile fullpath, op, (curr, prev) ->

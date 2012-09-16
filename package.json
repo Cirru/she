@@ -1,6 +1,6 @@
 {
   "name": "guil",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "add brackets for guile code",
   "main": "./lib/guil.js",
   "scripts": {
