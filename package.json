@@ -1,6 +1,6 @@
 {
   "name": "guil",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "add brackets for guile code",
   "main": "./lib/guil.js",
   "scripts": {
@@ -18,7 +18,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "colors": "0.8.x"
   },
   "bin": {
     "guil": "./bin/guil"
