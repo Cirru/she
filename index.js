@@ -16,7 +16,7 @@ _ref = require('child_process'), exec = _ref.exec, spawn = _ref.spawn;
 convert = require('./lib/guil.js').convert;
 
 process.argv.slice(2).forEach(function(filename) {
-  var basename, dirname, extname, fullpath, here, new_name, op;
+  var basename, dirname, extname, fullpath, here, new_name, op, run;
   show(filename);
   if (filename == null) {
     error('Missing filename!');
@@ -34,14 +34,15 @@ process.argv.slice(2).forEach(function(filename) {
   dirname = path.dirname(fullpath);
   basename = path.basename(fullpath, '.guil');
   new_name = path.join(dirname, basename + '.scm');
-  op = {
-    interval: 100
-  };
-  return fs.watchFile(fullpath, op, function() {
+  (run = function() {
     var file;
     file = fs.readFileSync(fullpath, 'utf8');
     file = convert(file);
     show('reload');
     return fs.writeFile(new_name, file, 'utf8');
-  });
+  })();
+  op = {
+    interval: 100
+  };
+  return fs.watchFile(fullpath, op, run);
 });

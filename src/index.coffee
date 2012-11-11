@@ -26,9 +26,11 @@ process.argv[2..].forEach (filename) ->
 
   # show filename, fullpath, new_name
 
-  op = interval: 100
-  fs.watchFile fullpath, op, ->
+  do run = ->
     file = fs.readFileSync fullpath, 'utf8'
     file = convert file
     show 'reload'
     fs.writeFile new_name, file, 'utf8'
+
+  op = interval: 100
+  fs.watchFile fullpath, op, run
