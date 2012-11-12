@@ -1,14 +1,21 @@
 
+cd `dirname $0`
+subl -a .
+
 echo '-- start watching'
 
-coffee -o lib/ -wb src/guil.coffee &
-coffee -o lib/ -wb src/sugar.coffee &
-coffee -o ./ -wb src/index.coffee &
-node-dev bin/guil examples/test.guil examples/test.guil&
+coffee -o bin/ -wb src/*coffee &
+jade -O bin/ -wP src/*jade &
+stylus -o bin/ -w src/*styl &
+doodle bin/ &
+# node-dev bin/guil examples/test.guil examples/test.guil &
 
 read
 
 pkill -f coffee
-pkill -f node-dev
+# pkill -f node-dev
+pkill -f jade
+pkill -f stylus
+pkill -f doodle
 
 echo '-- stop watching'

@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0px;
+  background: #f4f4fb;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  width: 4px;
+  background: #fee7e7;
+}
+::-webkit-scrollbar-thumb {
+  background: #e6b3b3;
+  border-radius: 2px;
+}
+#border {
+  width: 1000px;
+  box-shadow: 0px 0px 40px #808080;
+  margin: 0px auto;
+  padding: 0px 40px 400px;
+}
+#title {
+  font-size: 40px;
+  text-align: center;
+  font-family: "Purisa";
+  padding: 60px;
+}
+#source {
+  border: none;
+  outline: none;
+  resize: none;
+}
+#source,
+#result {
+  width: 920px;
+  height: 400px;
+  box-shadow: 0px 0px 20px #ccc;
+  font-family: monospace;
+  font-size: 16px;
+  padding: 100px 10px 200px;
+  overflow: scroll;
+}
+#result {
+  background: #e6e6e6;
+  margin: 20px 0px;
+}
+#doc {
+  margin: 100px 0px 200px;
+  font-family: 'wenquanyi micro hei', 'microsoft yahei';
+  font-size: 17px;
+}

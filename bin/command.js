@@ -13,7 +13,7 @@ path = require('path');
 
 _ref = require('child_process'), exec = _ref.exec, spawn = _ref.spawn;
 
-convert = require('./lib/guil.js').convert;
+convert = require('./guil.js').convert;
 
 process.argv.slice(2).forEach(function(filename) {
   var basename, dirname, extname, fullpath, here, new_name, op, run;

@@ -7,7 +7,7 @@ path = require 'path'
 {exec, spawn} = require 'child_process'
 # colors = require 'colors'
 
-convert = require('./lib/guil.js').convert
+convert = require('./guil.js').convert
 
 process.argv[2..].forEach (filename) ->
   show filename
