@@ -52,15 +52,90 @@ html
     script(src='../sea-modules/seajs/1.3.0-dev/sea.js')
     script
       seajs.use('./page.js')
-    link(rel='stylesheet',href='../lib/styles/default.css')
-    script(src='../lib/highlight.pack.js')
+    link(rel='stylesheet',href='../hljs/styles/default.css')
+    script(src='../hljs/highlight.pack.js')
     link(rel='stylesheet',href='layout.css')    
   body
     #border
-      //- #title Indentation-sensitive syntax for Scheme
-      textarea#source= sample
-      #result
-      //- #doc
-        p I haven't write docuemnts yet
+      #title She is a Indentation-sensitive syntax tool for Scheme
+      #play
+        textarea#source= sample
+        #result
+      #note
+        li
+          span A live demo here, just type word in the left one. 
+          span If there are problems about running the demo, 
+          b please use Chrome. 
+          span Or just 
+          a(href='https://github.com/jiyinyiyong/she/issues').
+            submit issuses here 
+          span to help me improve it.
+        li
+          span Since the old version of 
+          a(href='https://github.com/isagalaev/highlight.js/issues/152').
+            Hightlight.js 
+          span haven't udpated yet, the arshbang may break the syntax 
+          span in the demo. No need to comment out that 
+          span while using the command-line tool.
+      #doc
+        p.sub-title
+          a(href='https://github.com/jiyinyiyong/she') She 
+          span is a cli tool for generating part of brackets in Scheme.
+        p
+          span Use
+          code npm install -g she
+          span to install
+          code she
+          span from 
+          a(href='https://npmjs.org/') NPM.
+        p
+          span Yeah.. You need to install nodejs first, 
+          span rather than 
+          a(href='http://chickadee.call-cc.org/') Chicken Scheme 
+          span , which looks better.
+        p
+          span Run
+          code she a.she
+          span or
+          code she a.ss
+          span , and the process begins to watch and convert, 
+          span just like the demo above.
+        p
+          span Use
+          code she -q a.she
+          span or
+          code she --quick
+          span to force it quit after running for one time.
+        p
+          span Option
+          code -o
+          span can be used to specify the output directory
+          code she -o dir/ a.she
+          span ,
+        p
+          span Or
+          code she a.she -o dir/
+          span as well. Only the first argument after
+          code -o
+          span works as directory.
 
-      //- mixin disqus
+        p.sub-title
+          span How does she work on brackets..
+
+        p
+          span There a some rules.. Quite complicated to explain 
+          span for me to use English on this issue.
+        p
+          span But indetations relates to brackets right? 
+          span I wrote CoffeeScript to count the indetations first,
+        p
+          span then I try to add brackets according to the numbers.
+          span For special characters, I have to handle them elsewhere.
+        p
+          span If you are interested about that, please read 
+          a(href='https://github.com/jiyinyiyong/she') my code on Github 
+          span which was writtern in CoffeeScript.
+        p
+          span That's all about she. I'm trying to learn Chicken these days.
+
+      mixin disqus

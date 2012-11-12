@@ -43,7 +43,7 @@ define (require, exports) ->
 
     restult = []
 
-    console.log 'mapping', mapping
+    # console.log 'mapping', mapping
 
     [0...lines.length].forEach (n) ->
       if mapping[n]? then restult.push mapping[n]

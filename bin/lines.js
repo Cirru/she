@@ -61,7 +61,6 @@ define(function(require, exports) {
     });
     code = markup(code);
     restult = [];
-    console.log('mapping', mapping);
     (function() {
       _results = [];
       for (var _i = 0, _ref = lines.length; 0 <= _ref ? _i < _ref : _i > _ref; 0 <= _ref ? _i++ : _i--){ _results.push(_i); }

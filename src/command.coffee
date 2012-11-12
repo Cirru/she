@@ -1,36 +1,78 @@
 
-global.show = console.log
-global.error = (x) -> throw new Error x
+show = console.log
+error = (x) -> throw new Error x
 
 fs = require 'fs'
 path = require 'path'
-{exec, spawn} = require 'child_process'
-# colors = require 'colors'
+require 'seajs'
+{convert} = require('./lines')
+clc = require 'cli-color'
 
-convert = require('./guil.js').convert
+args = process.argv[2..]
 
-process.argv[2..].forEach (filename) ->
-  show filename
-  # filename = process.argv[2]
-  unless filename? then error 'Missing filename!'
-  extname = path.extname filename
-  unless extname is '.guil' then error 'wrong extname!' + extname
+is_op = (str) -> str[0] is '-'
 
-  if filename[0] is '/' then fullpath = filename else
-    here = process.env.PWD
-    fullpath = path.join here, filename
+short = (str) ->
+  if str is '--output' then '-o'
+  else if str is '--quick' then '-q'
+  else if str is '--help' then '-h'
+  else str
 
-  dirname = path.dirname fullpath
-  basename = path.basename fullpath, '.guil'
-  new_name = path.join dirname, (basename + '.scm')
+args = args.map short
 
-  # show filename, fullpath, new_name
+if '-h' in args
+  show '\n'
+  show 'she is a tool to help you write less brackets in Scheme\n'
+  show '-o   --output      set output file name'
+  show '-h   --help        show help\n'
+  show 'This is only a small tool, find she on Github'
+  show 'You may folk the repo to improve she.\n'
+  process.exit()
+
+output = undefined
+output_op = undefined
+quick_op = undefined
+input = []
+
+# show args
+
+args.forEach (item) ->
+  if output_op?
+    output = item
+    output_op = undefined
+  else if is_op item
+    if item is '-o' then output_op = 'now on'
+    else if item is '-q' then quick_op = 'now on'
+    else
+      show 'option not recognized: ', item
+      process.exit()
+  else
+    input.push item
+
+# show output, input, quick_op
+
+input.forEach (file) ->
+  if output?
+    if fs.existsSync(output)
+      if fs.statSync(output).isDirectory()
+        name = path.basename file
+        target = path.join output, name.replace(/\.\w+$/, '.scm')
+      else target = output
+    else target = output
+  else target = file.replace /\.\w+$/, '.scm'
+
+  # show target
 
   do run = ->
-    file = fs.readFileSync fullpath, 'utf8'
-    file = convert file
-    show 'reload'
-    fs.writeFile new_name, file, 'utf8'
+    fs.readFile file, 'utf8', (err, data) ->
+      throw err if err?
+      fs.writeFile target, (convert data), ->
+        time = new Date().getTime().toString()
+        n1 = Math.floor (Math.random() * 256)
+        n2 = Math.floor (Math.random() * 256)
+        draw = clc.xterm(n1).bgXterm(n2)
+        show (draw time[-7..]), target
 
-  op = interval: 100
-  fs.watchFile fullpath, op, run
+  # show 'quick_op', quick_op
+  unless quick_op?
+    fs.watchFile file, interval: 200, run
