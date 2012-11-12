@@ -14,13 +14,19 @@ define(function(require, exports) {
   codearea(source);
   convert = require('./lines').convert;
   default_code = localStorage.getItem('code');
+  if (default_code.trim().length > 0) {
+    source.value = default_code;
+  }
   source.focus();
+  hljs.tabReplace = '  ';
+  hljs.initHighlightingOnLoad();
   (render = function() {
     var code, value;
     value = source.value;
     localStorage.setItem('code', value);
     code = convert(value);
-    return result.innerHTML = "<pre>" + code + "</pre>";
+    result.innerHTML = "<pre class='language-lisp'><code class='lisp'>" + code + "</code></pre>";
+    return hljs.highlightBlock(result.children[0].children[0]);
   })();
   source.addEventListener('keyup', render);
 });

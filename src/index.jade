@@ -23,7 +23,7 @@ mixin disqus
     span comments powered by
   span.logo-disqus Disqus
 
-- var sample = "#!/usr/bin/env csi -s\n"
+- var sample = ";#!/usr/bin/env csi -s\n"
 - sample += '\n'
 - sample += 'print "hellow world"\n'
 - sample += '\n'
@@ -48,17 +48,19 @@ html
   head
     title Indentation-sensitive syntax
     meta(charset='utf-8')
-    link(rel='stylesheet',href='layout.css')    
     //- script(src='http://192.168.1.101:7777/doodle.js')
     script(src='../sea-modules/seajs/1.3.0-dev/sea.js')
     script
       seajs.use('./page.js')
+    link(rel='stylesheet',href='../lib/styles/default.css')
+    script(src='../lib/highlight.pack.js')
+    link(rel='stylesheet',href='layout.css')    
   body
     #border
-      #title Indentation-sensitive syntax for Scheme
+      //- #title Indentation-sensitive syntax for Scheme
       textarea#source= sample
       #result
-      #doc
+      //- #doc
         p I haven't write docuemnts yet
 
-      mixin disqus
+      //- mixin disqus

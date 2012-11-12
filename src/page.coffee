@@ -14,15 +14,18 @@ define (require, exports) ->
   {convert} = require('./lines')
 
   default_code = localStorage.getItem 'code'
-  # if default_code.trim().length > 0
-  #   source.value = default_code
+  if default_code.trim().length > 0
+    source.value = default_code
   source.focus()
+  hljs.tabReplace = '  '
+  hljs.initHighlightingOnLoad()
 
   do render = ->
     value = source.value
     localStorage.setItem 'code', value
     code = convert value
-    result.innerHTML =  "<pre>#{code}</pre>"
+    result.innerHTML =  "<pre class='language-lisp'><code class='lisp'>#{code}</code></pre>"
+    hljs.highlightBlock result.children[0].children[0]
   source.addEventListener 'keyup', render
 
   return

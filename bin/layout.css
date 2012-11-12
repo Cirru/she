@@ -53,3 +53,6 @@ body {
   font-family: 'wenquanyi micro hei', 'microsoft yahei';
   font-size: 17px;
 }
+pre code {
+  background: rgba(0,0,0,0);
+}
