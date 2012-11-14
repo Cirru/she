@@ -1,6 +1,6 @@
 {
   "name": "she",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "add brackets for sheme code",
   "main": "./bin/command.js",
   "scripts": {
@@ -18,7 +18,6 @@
   },
   "license": "MIT",
   "dependencies": {
-    "cli-color": "latest",
     "seajs": "latest"
   },
   "bin": {

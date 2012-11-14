@@ -6,7 +6,7 @@ fs = require 'fs'
 path = require 'path'
 require 'seajs'
 {convert} = require('./lines')
-clc = require 'cli-color'
+# clc = require 'cli-color'
 
 args = process.argv[2..]
 
@@ -67,11 +67,11 @@ input.forEach (file) ->
     fs.readFile file, 'utf8', (err, data) ->
       throw err if err?
       fs.writeFile target, (convert data), ->
-        time = new Date().getTime().toString()
-        n1 = Math.floor (Math.random() * 256)
-        n2 = Math.floor (Math.random() * 256)
-        draw = clc.xterm(n1).bgXterm(n2)
-        show (draw time[-7..]), target
+        # time = new Date().getTime().toString()
+        # n1 = Math.floor (Math.random() * 256)
+        # n2 = Math.floor (Math.random() * 256)
+        # draw = clc.xterm(n1).bgXterm(n2)
+        # show (draw time[-7..]), target
 
   # show 'quick_op', quick_op
   unless quick_op?
