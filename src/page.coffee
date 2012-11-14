@@ -28,4 +28,7 @@ define (require, exports) ->
     hljs.highlightBlock result.children[0].children[0]
   source.addEventListener 'keyup', render
 
+  source.onscroll = -> result.scrollTop = source.scrollTop
+  result.onscroll = -> source.scrollTop = result.scrollTop
+
   return

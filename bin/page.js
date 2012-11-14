@@ -29,4 +29,10 @@ define(function(require, exports) {
     return hljs.highlightBlock(result.children[0].children[0]);
   })();
   source.addEventListener('keyup', render);
+  source.onscroll = function() {
+    return result.scrollTop = source.scrollTop;
+  };
+  result.onscroll = function() {
+    return source.scrollTop = result.scrollTop;
+  };
 });
