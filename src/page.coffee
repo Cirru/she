@@ -1,6 +1,4 @@
 
-
-
 define (require, exports) ->
 
   show = (x) -> console.log x
@@ -14,7 +12,7 @@ define (require, exports) ->
   {convert} = require('./lines')
 
   default_code = localStorage.getItem 'code'
-  if default_code.trim().length > 0
+  if default_code?.trim?().length > 0
     source.value = default_code
   source.focus()
   hljs.tabReplace = '  '

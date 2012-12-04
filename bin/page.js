@@ -14,7 +14,7 @@ define(function(require, exports) {
   codearea(source);
   convert = require('./lines').convert;
   default_code = localStorage.getItem('code');
-  if (default_code.trim().length > 0) {
+  if ((default_code != null ? typeof default_code.trim === "function" ? default_code.trim().length : void 0 : void 0) > 0) {
     source.value = default_code;
   }
   source.focus();
