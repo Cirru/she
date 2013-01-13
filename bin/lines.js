@@ -36,7 +36,7 @@ define(function(require, exports) {
     return line.trim()[0] === ';';
   };
   is_shebang = function(line) {
-    return line.trim().slice(0, 2) === '#!';
+    return line.trim()[0] === '#';
   };
   trimRight = function(line) {
     return line.trimRight();

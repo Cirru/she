@@ -20,7 +20,7 @@ define (require, exports) ->
   not_comment = (line) -> line.trim()[0] isnt ';'
   is_comment = (line) -> line.trim()[0] is ';'
 
-  is_shebang = (line) -> line.trim()[0..1] is '#!'
+  is_shebang = (line) -> line.trim()[0] is '#'
 
   trimRight = (line) -> line.trimRight()
 
