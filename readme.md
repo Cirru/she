@@ -15,12 +15,17 @@ Influenced by code transformation of Node Community, I wrote she.
 The name.. as Scheme use `.scm` as a filename extenson,  
 I try to see Scheme from another view, and it's ScHEme, rather than SCheMe.
 
-#### Instalation ''
+#### Instalation
 
 She is writtern in CoffeeScript and packaged as a NPM module.  
 Just install via npm (maybe need use `sudo`):  
 ```bash
 npm install -g she
+```
+She is also a module for adding brackets to a string:  
+```coffee
+{convert} = require "she"
+convert "code" # outputs "(code)"
 ```
 
 Option `-o` spectifies the following pathname to be the output path.  
