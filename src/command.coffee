@@ -4,7 +4,6 @@ error = (x) -> throw new Error x
 
 fs = require 'fs'
 path = require 'path'
-require 'seajs'
 {convert} = require('./lines')
 # clc = require 'cli-color'
 

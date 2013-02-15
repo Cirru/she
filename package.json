@@ -1,6 +1,6 @@
 {
   "name": "she",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "add brackets for sheme code",
   "main": "./bin/lines.js",
   "scripts": {
@@ -21,6 +21,6 @@
     "seajs": "latest"
   },
   "bin": {
-    "she": "./bin/she.js"
+    "she": "./bin/command.js"
   }
 }
