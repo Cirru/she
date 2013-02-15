@@ -17,9 +17,6 @@
     "name": "jiyinyiyong"
   },
   "license": "MIT",
-  "dependencies": {
-    "seajs": "latest"
-  },
   "bin": {
     "she": "./bin/command.js"
   }
