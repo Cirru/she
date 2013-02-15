@@ -1,6 +1,4 @@
 
-require "seajs"
-
 define (require, exports) ->
   markup = require('./brackets').markup
   error = (info) -> console.log 'error:', info
