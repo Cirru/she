@@ -2,7 +2,7 @@
   "name": "she",
   "version": "0.0.7",
   "description": "add brackets for sheme code",
-  "main": "./bin/command.js",
+  "main": "./bin/lines.js",
   "scripts": {
     "test": "./bin/she.js"
   },
